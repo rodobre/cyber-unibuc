@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap" rel="stylesheet"> 
+		<link rel="stylesheet" type="text/css" href="/static/stylesheets/style.css">
+
+		<title>FMICTF</title>
+
+		<ul class="navbar_ul">
+			<li class="navbar_li"><a href="/">home</a></li>
+			<li class="navbar_li"><a href="/challenges">challenges</a></li>
+			<li class="navbar_li"><a href="/leaderboard">leaderboard</a></li>
+			<li class="navbar_li"><a href="/news">news</a></li>
+			<li id="login_li" class="navbar_li"><a id="login_href" class="navbar_active" href="/login">login</a></li>
+			<li id="register_li" class="navbar_li"><a id="register_href" href="/register">register</a></li>
+		</ul>
+	</head>
+		
+	<body>
+		<div class="bg"></div>
+		<div class="bg bg2"></div>
+		<div class="bg bg3"></div>
+
+		<div class="form-container">
+			<form name="login" id="login-form" onsubmit="submit_form(event)" action="" method="post" class="form-style">
+				<label for="username" class="form-label">username</label>
+				<input id="username-input" type="text" name="username" class="form-input" required>
+
+				<label for="password" class="form-label">password</label>
+				<input id="password-input" type="password" name="password" class="form-input" required>
+
+				<br/>
+				<button type="submit" class="form-btn">login</button>
+			</form>
+		</div>
+
+		<script>
+		function escapeHtml(unsafe) {
+    		return unsafe
+         		.replace(/&/g, "&amp;")
+         		.replace(/</g, "&lt;")
+         		.replace(/>/g, "&gt;")
+         		.replace(/"/g, "&quot;")
+         		.replace(/'/g, "&#039;");
+ 		}
+
+		function submit_form(event)
+		{
+			event.preventDefault();
+
+			let input_user = document.querySelector('#username-input').value,
+				input_pass = document.querySelector('#password-input').value;
+
+			let xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if(this.readyState == 4)
+				{
+					if(this.status == 200)
+					{
+						window.location = "/challenges";
+						input_user = escapeHtml(input_user);
+						localStorage.setItem('username', input_user);
+					}
+					else if(this.status == 401)
+					{
+						alert('Username or password incorrect!');
+					}
+				}
+			}
+
+			xhttp.open("POST", "/api/login");
+			xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+			xhttp.send(JSON.stringify({"name":input_user, "password":input_pass}));
+		}
+		</script>
+	</body>
+</html>

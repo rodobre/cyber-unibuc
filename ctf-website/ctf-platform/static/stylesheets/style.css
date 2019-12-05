@@ -1,0 +1,359 @@
+html {
+	height:100%;
+}
+
+body {
+	margin: 0;
+	margin-top: 6rem;
+}
+
+h1 {
+	color: #23bf23;
+	font-size: 1.5rem;
+	font-family: 'IBM Plex Mono', monospace;
+	letter-spacing: 2px;
+	margin: auto;
+	padding-left: 20px;
+	text-decoration: none;
+}
+
+.bg {
+	animation:slide 6s ease-in-out infinite alternate;
+	background-image: linear-gradient(45deg, #0a0a0a 50%, #141414 50%);
+	opacity: .75;
+	bottom:0;
+	left:-50%;
+	position:fixed;
+	right:-50%;
+	top:0;
+	z-index:-1;
+}
+
+.bg2 {
+	animation-direction:alternate-reverse;
+	animation-duration:7s;
+}
+
+.bg3 {
+	animation-duration:8s;
+}
+
+@keyframes slide {
+	0% {
+		transform:translateX(-25%);
+	}
+	100% {
+		transform:translateX(25%);
+	}
+}
+
+.typed_text_fmt {
+	color: #23bf23;
+	font-size: 3rem;
+	display: table;
+	margin: 0 auto;
+	z-index: 10001 !important;
+	font-family: 'IBM Plex Mono', monospace;
+	letter-spacing: 2px;
+}
+
+.navbar_ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-image: linear-gradient(90deg, rgba(10, 23, 8, 120), rgba(9, 18, 23, 120));
+	position: fixed;
+	height: 40px;
+	top: 0;
+	width: 100%;
+	border-bottom: 1px solid #23bf23;
+
+	-webkit-animation: border_animation 1s ease-in-out infinite; /* Safari 4.0 - 8.0 */
+	animation: border_animation 1s ease-in-out infinite;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes border_animation {
+  50% {border-bottom: 2px ridge #23bf23;}
+}
+
+@keyframes border_animation {
+  50% {border-bottom: 2px ridge #23bf23;}
+}
+
+.navbar_li {
+	float: left;
+	height: 40px !important;
+}
+
+.navbar_li a {
+	line-height: 40px;
+	display: block;
+	flex: 1 1 0px;
+	color: white;
+	text-align: center;
+	font-family: 'IBM Plex Mono', monospace;
+	letter-spacing: 2px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-decoration: none;
+}
+
+.navbar_li:nth-child(n + 5) {
+	float: right;
+}
+
+.navbar_li a:hover:not(.navbar_active) {
+	background-color: #333;
+}
+
+.navbar_active {
+	background-color: #23bf23;
+}
+
+.flex-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	height: 40vh;
+}
+
+.flex-container > div {
+	background-color: #121212;
+	opacity: 0.85;
+	color: white;
+	height: 20%;
+	border-radius: 5px;
+	border: 1px solid #34bc21;
+	margin-left: 3rem;
+	margin-top: 3rem;
+	margin-right: 3rem;
+	display: flex;
+	flex: 1 1 200px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.flex-chall-title-solved {
+	color: #e9e9e9;
+	background-color: #34bc21 !important;
+	text-overflow: ellipsis;
+}
+
+.flex-chall-title {
+	color: #e9e9e9;
+	text-overflow: ellipsis;
+}
+
+.flex-chall-span {
+	margin: auto;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 150%;
+	font-family: 'IBM Plex Mono', monospace;
+	letter-spacing: 2px;
+}
+
+.form-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.form-style {
+	height: 40vh;
+	width: 40vw;
+	padding: 10%;
+	border: 2px solid #23bf23;
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+.form-label {
+	font-family: 'IBM Plex Mono', monospace;
+	font-size: 3rem;
+	color: #23bf23;
+	letter-spacing: 2px;
+	text-align: center !important;
+	opacity: .8;
+	width: 100%;
+}
+
+.form-input {
+	font-family: 'IBM Plex Mono', monospace;
+	font-size: 3rem;
+	color: #23bf23;
+	letter-spacing: 2px;
+	background-color: #191919;
+	opacity: .8;
+	border: none;
+	margin-bottom: 2rem;
+	width: 100%;
+}
+
+.form-btn {
+	width: 30%;
+	height: 10%;
+	font-size: 1rem;
+	background-color: #23bf23;
+	color: white;
+	border: none;
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+	font-family: 'IBM Plex Mono', monospace;
+}
+
+.form-btn:hover {
+	opacity: .8;
+}
+
+.challenge-modal {
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+.challenge-full {
+	height: 50vh;
+	width: 60vw;
+	border: 2px solid #23bf23;
+	border-radius: 3px;
+	overflow: visible;
+	font-family: 'IBM Plex Mono', monospace;
+	color: #23bf23;
+	letter-spacing: 2px;
+	text-align: center !important;
+	background-color: #111111;
+}
+
+.challenge-title {
+	font-size: 1.5rem;
+	color: #23bf23;
+	letter-spacing: 2px;
+	text-align: center !important;
+	opacity: .8;
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+.challenge-descr {
+	font-size: 1rem;
+	color: #23bf23;
+	letter-spacing: 2px;
+	text-align: center !important;
+	opacity: .8;
+	width: 100%;
+}
+
+.challenge-input {
+	font-family: 'IBM Plex Mono', monospace;
+	font-size: 1rem;
+	color: #23bf23;
+	letter-spacing: 2px;
+	background-color: #191919;
+	opacity: .8;
+	border: none;
+	width: 95%;
+	margin-top: 2rem;
+}
+
+.challenge-btn {
+	width: 30%;
+	height: 10%;
+	overflow: hidden;
+	font-size: 1rem;
+	background-color: #23bf23;
+	color: white;
+	border: none;
+	margin-top: .75rem;
+	margin-bottom: 2rem;
+	font-family: 'IBM Plex Mono', monospace;
+}
+
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+.leaderboard-flex-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.flex-table-row {
+	display: grid;
+	grid-template-columns: 5fr 2fr;
+}
+
+.leaderboard-flex-user {
+	padding: 8px 4px;
+	display: contents;
+}
+
+.leaderboard-entry-user {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: left;
+	font-family: 'IBM Plex Mono', monospace;
+	color: #23bf23;
+	letter-spacing: 2px;
+	font-size: 1rem;
+	padding-right: 75px;
+}
+
+.leaderboard-entry-points {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: left;
+	font-family: 'IBM Plex Mono', monospace;
+	color: #23bf23;
+	letter-spacing: 2px;
+	font-size: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+  .form-label {
+  	font-size: 1rem;
+  	letter-spacing: 1px;
+  }
+
+  .form-input {
+	font-size: 1rem;
+	letter-spacing: 1px;
+  }
+
+  .form-btn {
+  	letter-spacing: 1px;
+  	width: 70%;
+  	height: 10%;
+  }
+
+  .leaderboard-entry-user {
+  	letter-spacing: 1px;
+  	font-size: .75rem;
+  	padding-right: 25px;
+  }
+
+  .leaderboard-entry-points {
+  	letter-spacing: 1px;
+  	font-size: .75rem;
+  	padding-right: 25px;
+  }
+}

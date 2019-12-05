@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+    flask:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - ./ctf-platform:/ctf-platform
+        ports:
+            - "80:5000"

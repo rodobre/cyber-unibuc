@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap" rel="stylesheet"> 
+		<link rel="stylesheet" type="text/css" href="/static/stylesheets/style.css">
+		<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+		<title>FMICTF</title>
+
+		<ul class="navbar_ul">
+			<li class="navbar_li"><a class="navbar_active" href="/">home</a></li>
+			<li class="navbar_li"><a href="/challenges">challenges</a></li>
+			<li class="navbar_li"><a href="/leaderboard">leaderboard</a></li>
+			<li class="navbar_li"><a href="/news">news</a></li>
+			<li id="login_li" class="navbar_li"><a id="login_href" href="/login">login</a></li>
+			<li id="register_li" class="navbar_li"><a id="register_href" href="/register">register</a></li>
+		</ul>
+
+		<script src="/static/js/session.js"></script>
+	</head>
+		
+	<body>
+		<div class="bg"></div>
+		<div class="bg bg2"></div>
+		<div class="bg bg3"></div>
+
+		<h1 id='greeting'></h1>
+		<h1>Get started by downloading BurpSuite Community (<a href="https://portswigger.net/burp/communitydownload">here</a>)</h1>
+		<h1>Read more about common web vulnerabilities and try out PortSwigger's web exploitation playground! <a href="https://cheatsheetseries.owasp.org/">OWASP Cheatsheet Series</a> and <a href="https://portswigger.net/web-security">PortSwigger Web Exploitation Course</a></h1>
+
+		<script>
+		document.getElementById('greeting').innerHTML = 'Hello ' + localStorage.getItem('username') + '!';
+		</script>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap" rel="stylesheet"> 
+		<link rel="stylesheet" type="text/css" href="/static/stylesheets/style.css">
+
+		<title>FMICTF</title>
+
+		<ul class="navbar_ul">
+			<li class="navbar_li"><a href="/">home</a></li>
+			<li class="navbar_li"><a href="/challenges">challenges</a></li>
+			<li class="navbar_li"><a class="navbar_active" href="/leaderboard">leaderboard</a></li>
+			<li class="navbar_li"><a href="/news">news</a></li>
+			<li id="login_li" class="navbar_li"><a id="login_href" href="/login">login</a></li>
+			<li id="register_li" class="navbar_li"><a id="register_href" href="/register">register</a></li>
+		</ul>
+
+		<script src="/static/js/session.js"></script>
+	</head>
+		
+	<body>
+		<div class="bg"></div>
+		<div class="bg bg2"></div>
+		<div class="bg bg3"></div>
+
+		<div id="leaderboard-container" class="leaderboard-flex-container">
+			<div id="flex-table" class="flex-table-row">
+				<div id="leaderboard-template" class="leaderboard-flex-user">
+					<span id="leaderboard-span-template-user" class="leaderboard-entry-user"></span>
+					<span id="leaderboard-span-template-points" class="leaderboard-entry-points"></span>
+				</div>
+			</div>
+		</div>
+
+		<script>
+		var template_container = document.querySelector('#flex-table'),
+			template_div = document.querySelector('#leaderboard-template');
+
+		let i = 1;
+		fetch('/api/leaderboard')
+			.then(response => response.json())
+			.then(data => {
+				challenges_as_json = data.leaderboard;
+				for (const user of data.leaderboard) {
+					let clone = template_div.cloneNode(true);
+					clone.childNodes[1].innerHTML = i + '. ' + user.name;
+					clone.childNodes[3].innerHTML = user.points.toString();
+					template_container.appendChild(clone);
+					++i;
+				}
+
+				template_div.remove();
+			});
+		</script>
+	</body>
+</html>
