@@ -169,5 +169,6 @@ nmap -sC -sV -oA fisier_out.txt 10.10.10.142
 Web-CTF-Cheatsheet:  https://github.com/w181496/Web-CTF-Cheatsheet 
 
 PayloadsAllTheThings:  https://github.com/swisskyrepo/PayloadsAllTheThings/ 
-
 XSS-Cheatsheet:  https://portswigger.net/research/one-xss-cheatsheet-to-rule-them-all 
+
+OWASP-Cheatsheet: https://cheatsheetseries.owasp.org/
