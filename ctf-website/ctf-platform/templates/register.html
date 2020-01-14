@@ -2,14 +2,17 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
 		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap" rel="stylesheet"> 
 		<link rel="stylesheet" type="text/css" href="/static/stylesheets/style.css">
 
 		<title>FMICTF</title>
-
+	</head>
+		
+	<body>
 		<ul class="navbar_ul">
+			<li id="burger" class="navbar_li" onclick="show_menu(event)"><a href="#">≡</a></li>
 			<li class="navbar_li"><a href="/">home</a></li>
 			<li class="navbar_li"><a href="/challenges">challenges</a></li>
 			<li class="navbar_li"><a href="/leaderboard">leaderboard</a></li>
@@ -17,19 +20,18 @@
 			<li id="login_li" class="navbar_li"><a id="login_href" href="/login">login</a></li>
 			<li id="register_li" class="navbar_li"><a id="register_href" class="navbar_active" href="/register">register</a></li>
 		</ul>
-	</head>
-		
-	<body>
+
+		<script src="/static/js/menu.js"></script>
 		<div class="bg"></div>
 		<div class="bg bg2"></div>
 		<div class="bg bg3"></div>
 
 		<div class="form-container">
-			<form name="login" id="login-form" onsubmit="submit_form(event)" action="" method="post" class="form-style">
-				<label for="username" class="form-label">username</label>
+			<form name="login" id="login-form" onsubmit="submit_form(event)" action="#" method="post" class="form-style">
+				<label for="username-input" class="form-label">username</label>
 				<input id="username-input" type="text" name="username" class="form-input" required>
 
-				<label for="password" class="form-label">password</label>
+				<label for="password-input" class="form-label">password</label>
 				<input id="password-input" type="password" name="password" class="form-input" required>
 
 				<br/>

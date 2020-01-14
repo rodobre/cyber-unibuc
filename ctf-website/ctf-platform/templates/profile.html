@@ -2,15 +2,18 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
 		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap" rel="stylesheet"> 
 		<link rel="stylesheet" type="text/css" href="/static/stylesheets/style.css">
 		<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 
 		<title>FMICTF</title>
-
+	</head>
+		
+	<body>
 		<ul class="navbar_ul">
+			<li id="burger" class="navbar_li" onclick="show_menu(event)"><a href="#">≡</a></li>
 			<li class="navbar_li"><a class="navbar_active" href="/">home</a></li>
 			<li class="navbar_li"><a href="/challenges">challenges</a></li>
 			<li class="navbar_li"><a href="/leaderboard">leaderboard</a></li>
@@ -19,15 +22,13 @@
 			<li id="register_li" class="navbar_li"><a id="register_href" href="/register">register</a></li>
 		</ul>
 
+		<script src="/static/js/menu.js"></script>
 		<script src="/static/js/session.js"></script>
-	</head>
-		
-	<body>
 		<div class="bg"></div>
 		<div class="bg bg2"></div>
 		<div class="bg bg3"></div>
 
-		<h1 id="username"></h1>
+		<h1 id="username">#</h1>
 
 		<script>
 		document.getElementById('username').innerHTML = 'Your user name is: ' + localStorage.getItem('username');

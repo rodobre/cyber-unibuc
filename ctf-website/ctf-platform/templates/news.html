@@ -2,14 +2,17 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
 		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap" rel="stylesheet"> 
 		<link rel="stylesheet" type="text/css" href="/static/stylesheets/style.css">
 
 		<title>FMICTF</title>
-
+	</head>
+		
+	<body>
 		<ul class="navbar_ul">
+			<li id="burger" class="navbar_li" onclick="show_menu(event)"><a href="#">≡</a></li>
 			<li class="navbar_li"><a href="/">home</a></li>
 			<li class="navbar_li"><a href="/challenges">challenges</a></li>
 			<li class="navbar_li"><a href="/leaderboard">leaderboard</a></li>
@@ -18,12 +21,87 @@
 			<li id="register_li" class="navbar_li"><a id="register_href" href="/register">register</a></li>
 		</ul>
 
+		<script src="/static/js/menu.js"></script>
 		<script src="/static/js/session.js"></script>
-	</head>
 		
-	<body>
 		<div class="bg"></div>
 		<div class="bg bg2"></div>
 		<div class="bg bg3"></div>
+
+		<header class="news-header">
+			<p>Top 5 web vulnerabilities sorted by impact and likelihood</p>
+		</header>
+
+		<br/>
+		<br/>
+
+		<table class="news-table">
+			<tr>
+				<th><p>Vulnerability</p></th>
+				<th><p>Impact</p></th>
+				<th><p>Likelihood</p></th>
+			</tr>
+			
+			<tr>
+				<td><p>Cross-Site Scripting</p></td>
+				<td><p>Medium</p></td>
+				<td><p>Very likely</p></td>
+			</tr>
+
+			<tr>
+				<td><p>SQL Injection</p></td>
+				<td><p>High</p></td>
+				<td><p>Likely</p></td>
+			</tr>
+
+			<tr>
+				<td><p>XML External Entity</p></td>
+				<td><p>Medium</p></td>
+				<td><p>Likely</p></td>
+			</tr>
+
+			<tr>
+				<td><p>Insecure Deserialization</p></td>
+				<td><p>High</p></td>
+				<td><p>Less likely</p></td>
+			</tr>
+
+			<tr>
+				<td><p>Using Components with Known CVEs</p></td>
+				<td><p>Medium</p></td>
+				<td><p>Less likely</p></td>
+			</tr>
+		</table>
+
+		<footer style="margin-top: 5em;">
+			<nav class="flex-container">
+				<figure>
+					<a id="xss-tutorial" href="#">
+						<img src="https://portswigger.net/web-security/images/cross-site-scripting.svg">
+					</a>
+					<figcaption>Cross-Site Scripting Tutorial</figcaption>
+				</figure>
+
+				<figure>
+					<a id="sql-tutorial" href="#">
+						<img src="https://portswigger.net/web-security/images/sql-injection.svg">
+					</a>
+					<figcaption>SQL Injection Tutorial</figcaption>
+				</figure>
+			</nav>
+		</footer>
+
+		<script>
+			let xss_tutorial = document.getElementById("xss-tutorial");
+			let sql_tutorial = document.getElementById("sql-tutorial");
+
+			xss_tutorial.addEventListener("click", function() {
+				window.open('https://portswigger.net/web-security/cross-site-scripting');
+			}, true);
+
+			sql_tutorial.addEventListener("click", function() {
+				window.open('https://portswigger.net/web-security/sql-injection');
+			}, true);
+		</script>
 	</body>
 </html>
